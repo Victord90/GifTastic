@@ -1,39 +1,40 @@
 $(document).ready(function(){
 
 
-    let players = ["Michael Jordan", "Kobe Bryant", "Steph Curry", "Kevin Durant"];
+    var players = ["Michael Jordan", "Kobe Bryant", "Steph Curry", "Kevin Durant"];
 
 
 
-    function displayNames () {
+    function displayNames() {
         $("#gifs").empty();
-        let player = $(this).attr("data-name");
-        let queryURL = "https://api.giphy.com/v1/gifs/search?&q=" + player + "&api_key=CjNGByaxkP2CCVFXOKYVhWl0llZIjF5S&limit=10";
+        var player = $(this).attr("data-name");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=CjNGByaxkP2CCVFXOKYVhWl0llZIjF5S&q=" + player + "&limit=10&rating=PG&lang=en";
 
 
         $.ajax({
             url: queryURL,
             method: "GET"
         })
-
-            .then(function(response){
-                console.log(response)
+            .then(function(response) {
+                console.log(queryURL)
                 var results = response.data;
                 
-                   for (var j = 0; j < results.length; j++){
+                
+                   for (var i = 0; i < results.length; i++){
                     var newPlayerdiv = $("<div>");
-                    var rating = $("<p>").text("Rating: " + results[j].rating);
-                    var gifURL = results[j].images.fixed_height_still.url;
+                    var rating = results[i].rating
+                    var p = $("<p>").text("Rating: " + results[i].rating);
+                    var gifURL = results[i].images.fixed_height_still.url;
                     var gif = $("<img>");
                     gif.attr("src", gifURL);
-                    gif.attr("data-still", results[j].images.fixed_height_still.url);
-                    gif.attr("data-animate", results[j].images.fixed_height.url);
+                    gif.attr("data-still", results[i].images.fixed_height_still.url);
+                    gif.attr("data-animate", results[i].images.fixed_height.url);
                     gif.attr("data-state", "still");
                     gif.addclass("animate-gif");
 
                     newPlayerdiv.append(rating);
                     newPlayerdiv.append(gif);
-
+                   
                     $("#gifs").prepend(newPlayerdiv);
                     
                     
