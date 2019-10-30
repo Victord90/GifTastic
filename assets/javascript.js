@@ -23,16 +23,16 @@ $(document).ready(function(){
                    for (var i = 0; i < results.length; i++){
                     var newPlayerdiv = $("<div>");
                     var rating = results[i].rating
-                    var p = $("<p>").text("Rating: " + results[i].rating);
+                    var p = $("<p>").text("Rating: " + rating);
                     var gifURL = results[i].images.fixed_height_still.url;
                     var gif = $("<img>");
                     gif.attr("src", gifURL);
                     gif.attr("data-still", results[i].images.fixed_height_still.url);
                     gif.attr("data-animate", results[i].images.fixed_height.url);
                     gif.attr("data-state", "still");
-                    gif.addclass("animate-gif");
+                    gif.addClass("animate-gif");
 
-                    newPlayerdiv.append(rating);
+                    newPlayerdiv.append(p);
                     newPlayerdiv.append(gif);
                    
                     $("#gifs").prepend(newPlayerdiv);
@@ -53,6 +53,7 @@ $(document).ready(function(){
 
                 newButton.attr("data-name", players[i]);
                 newButton.text(players[i]);
+                newButton.addClass("player")
                 $("#buttons").append(newButton);
 
             }
