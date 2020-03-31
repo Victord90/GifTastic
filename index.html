@@ -11,13 +11,36 @@
     <link rel="stylesheet" href="assets/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
-  <body>
-    <header>
-      <h1>Basketball Giftastic!</h1>
-    </header>
+  <div class="container">
+    <div class="jumbotron">
+      <header>
+        <h1>Basketball Giftastic!</h1>
+      </header>
+    </div>
+</div>
 
-    <div class="flex-container">
-      <div id="buttons"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="flex-container">
+            <div class="col-12" id="buttons"></div>
+          </div>
+
+          <div class="col-12">
+            <form class="playerInput">
+              <label for="adding-player"
+                ><h3>Add a Basketball Player</h3></label
+              >
+              <input type="text" id="adding-player" />
+              <input id="add-player" type="submit" value="Add Player" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="flex-container">
+      <div class="col-6" id="buttons"></div>
     </div>
 
     <div>
@@ -26,9 +49,10 @@
         <input type="text" id="adding-player" />
         <input id="add-player" type="submit" value="Add Player" />
       </form>
-    </div>
-
+    </div> -->
+ <div class="container">
     <div id="gifs"></div>
+</div>
 
     <script src="assets/javascript.js"></script>
   </body>
